@@ -2,6 +2,8 @@
 
 using namespace remmel;
 
+Lexer::Lexer(FStr _in) : in(_in), len(_in.length()), pos(0), readPos(0) { this->readChar(); }
+
 REM_TOKEN Lexer::NextToken()
 {
     REM_TOKEN ret = REM_TOKEN(REM_TOKEN_TYPE::TOKEN_ILLEGAL, " ");

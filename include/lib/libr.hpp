@@ -1,7 +1,7 @@
 #ifndef __REMMEL_LIB__
 #define __REMMEL_LIB__
 
-#include <stdint.h>
+#include "libc.h"
 #include <vector>
 #include <map>
 #include <unordered_map>
@@ -11,9 +11,6 @@
 #include <fstream>
 #include <tuple>
 #include <queue>
-#include <time.h>
-#include <stdio.h>
-#include <string.h>
 #include <mutex>
 #include <utility>
 #include <functional>
@@ -23,6 +20,8 @@
 #include <csignal>
 #include <sstream>
 #include <deque>
+#include <stack>
+#include <stdexcept>
 
 #ifdef _WIN32
 
@@ -41,6 +40,9 @@
 #include <netinet/in.h>
 
 #elif __APPLE__
+
+#include <unistd.h>
+#include <sys/event.h>
 
 #endif
 

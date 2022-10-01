@@ -22,6 +22,8 @@ Packet *remmel::Conn::await()
     return this->instance->await();
 }
 
+#ifdef _WIN32
+
 ASYNC_IO_HANDLE::ASYNC_IO_HANDLE(SOCKET sock, IO_EVENT event)
 {
     memset(this, 0, sizeof(ASYNC_IO_HANDLE));
@@ -133,3 +135,9 @@ void WinConn::close()
 {
     CLOSE_SERVER();
 }
+
+#elif __linux__
+
+#elif __APPLE__
+
+#endif

@@ -22,7 +22,7 @@ namespace remmel
         FStr readIdentifier();
 
     public:
-        Lexer(FStr _in) : in(_in), len(_in.length()), pos(0), readPos(0) { this->readChar(); }
+        Lexer(FStr);
         ~Lexer();
         REM_TOKEN NextToken();
     };

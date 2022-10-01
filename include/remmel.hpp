@@ -14,6 +14,7 @@
 // data struct
 #include "lib/tire.hpp"
 #include "lib/safe_queue.hpp"
+#include "lib/heap.hpp"
 
 // interpreter
 #include "interpreter/token.hpp"

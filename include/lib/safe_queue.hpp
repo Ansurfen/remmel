@@ -16,10 +16,17 @@ namespace remmel
         safe_queue();
         ~safe_queue();
         void push(T);
+        void unsafe_push(T);
         void pop();
+        void unsafe_pop();
         T get();
+        T unsafe_get();
         T front();
+        T unsafe_front();
         int size() const;
+        int unsafe_size() const;
+        bool empty() const;
+        bool unsafe_empty() const;
     };
 }
 

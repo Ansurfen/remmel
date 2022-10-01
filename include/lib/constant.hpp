@@ -24,12 +24,15 @@
 #define Que std::queue
 #define Tuple std::tuple
 #define Deque std::deque
+#define Stack std::stack
+#define Pair std::pair
 
 #define SStream std::stringstream
 #define Ifstream std::ifstream
 #define Ofstream std::ofstream
 
 #define Thread std::thread
+#define Atomic std::atomic
 
 #define Cout std::cout
 #define Endl std::endl
@@ -42,5 +45,7 @@
 #define Enable_if_t std::enable_if_t
 
 #define Swap std::swap
+
+#define Runtime_error std::runtime_error
 
 #endif

@@ -3,22 +3,12 @@
 using namespace remmel;
 
 template <class T, class sequence, const uint32_t n, class compare>
-remmel::heap<T, sequence, n, compare>::heap()
+heap<T, sequence, n, compare>::heap()
 {
 }
 
 template <class T, class sequence, const uint32_t n, class compare>
-remmel::heap<T, sequence, n, compare>::heap(const Vec<T> &datas)
-{
-    for (const T &data : datas)
-    {
-        this->datas.emplace_back(data);
-        this->up(this->datas.size() - 1);
-    }
-}
-
-template <class T, class sequence, const uint32_t n, class compare>
-remmel::heap<T, sequence, n, compare>::heap(const Deque<T> &datas)
+heap<T, sequence, n, compare>::heap(const Vec<T> &datas)
 {
     for (const T &data : datas)
     {
@@ -28,12 +18,22 @@ remmel::heap<T, sequence, n, compare>::heap(const Deque<T> &datas)
 }
 
 template <class T, class sequence, const uint32_t n, class compare>
-remmel::heap<T, sequence, n, compare>::~heap()
+heap<T, sequence, n, compare>::heap(const Deque<T> &datas)
+{
+    for (const T &data : datas)
+    {
+        this->datas.emplace_back(data);
+        this->up(this->datas.size() - 1);
+    }
+}
+
+template <class T, class sequence, const uint32_t n, class compare>
+heap<T, sequence, n, compare>::~heap()
 {
 }
 
 template <class T, class sequence, const uint32_t n, class compare>
-void remmel::heap<T, sequence, n, compare>::up(uint32_t x)
+void heap<T, sequence, n, compare>::up(uint32_t x)
 {
     while (x)
     {
@@ -49,7 +49,7 @@ void remmel::heap<T, sequence, n, compare>::up(uint32_t x)
 }
 
 template <class T, class sequence, const uint32_t n, class compare>
-void remmel::heap<T, sequence, n, compare>::down(uint32_t x)
+void heap<T, sequence, n, compare>::down(uint32_t x)
 {
     while (x * n + 1 < this->datas.size())
     {
@@ -74,14 +74,14 @@ void remmel::heap<T, sequence, n, compare>::down(uint32_t x)
 }
 
 template <class T, class sequence, const uint32_t n, class compare>
-void remmel::heap<T, sequence, n, compare>::push(const T &data)
+void heap<T, sequence, n, compare>::push(const T &data)
 {
     this->datas.emplace_back(data);
     this->up(this->datas.size() - 1);
 }
 
 template <class T, class sequence, const uint32_t n, class compare>
-void remmel::heap<T, sequence, n, compare>::pop()
+void heap<T, sequence, n, compare>::pop()
 {
     Swap(this->datas[0], this->datas[this->datas.size() - 1]);
     this->datas.pop_back();
@@ -89,19 +89,19 @@ void remmel::heap<T, sequence, n, compare>::pop()
 }
 
 template <class T, class sequence, const uint32_t n, class compare>
-const T &remmel::heap<T, sequence, n, compare>::top() const
+const T &heap<T, sequence, n, compare>::top() const
 {
     return this->datas[0];
 }
 
 template <class T, class sequence, const uint32_t n, class compare>
-const uint32_t remmel::heap<T, sequence, n, compare>::size() const
+const uint32_t heap<T, sequence, n, compare>::size() const
 {
     return this->datas.size();
 }
 
 template <class T, class sequence, const unsigned int n, class compare>
-const bool remmel::heap<T, sequence, n, compare>::empty() const
+const bool heap<T, sequence, n, compare>::empty() const
 {
     return this->datas.empty();
 }

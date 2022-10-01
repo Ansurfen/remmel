@@ -58,8 +58,8 @@ namespace remmel
     {
         REM_TOKEN_TYPE type;
         FStr Literal;
-        REM_TOKEN() {}
-        REM_TOKEN(REM_TOKEN_TYPE t, FStr l) : type(t), Literal(l) {}
+        REM_TOKEN();
+        REM_TOKEN(REM_TOKEN_TYPE, FStr);
     };
 
     static HashMap<FStr, REM_TOKEN_TYPE> keywords = {
