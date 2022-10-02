@@ -22,6 +22,7 @@
 #include <deque>
 #include <stack>
 #include <stdexcept>
+#include <list>
 
 #ifdef _WIN32
 

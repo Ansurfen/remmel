@@ -26,6 +26,7 @@
 #define Deque std::deque
 #define Stack std::stack
 #define Pair std::pair
+#define List std::list
 
 #define SStream std::stringstream
 #define Ifstream std::ifstream
@@ -47,5 +48,10 @@
 #define Swap std::swap
 
 #define Runtime_error std::runtime_error
+
+#define ns_lock true
+#define ns_unlock false
+
+constexpr int NIL{};
 
 #endif
