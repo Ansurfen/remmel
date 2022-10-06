@@ -18,7 +18,7 @@ namespace remmel
         IValue(long long);
         IValue(float);
         IValue(double);
-        IValue(const char *);
+        IValue(CStr);
         IValue(const Str &);
         IValue(const FStr &);
         ~IValue();
@@ -29,7 +29,7 @@ namespace remmel
         void operator=(long long);
         void operator=(float);
         void operator=(double);
-        void operator=(const char *);
+        void operator=(CStr);
         void operator=(const Str &);
         void operator=(const FStr &);
 
@@ -39,7 +39,7 @@ namespace remmel
         operator long long() const;
         operator float() const;
         operator double() const;
-        operator const char *() const;
+        operator CStr() const;
         operator Str() const;
         operator FStr() const;
     };
@@ -53,19 +53,19 @@ namespace remmel
 
     public:
         IniEngine();
-        IniEngine(const char *);
+        IniEngine(CStr);
         ~IniEngine();
-        section &operator[](const char *);
+        section &operator[](CStr);
         FStr ToStr();
-        bool Has(const char *);
-        bool Has(const char *, const char *);
-        void Set(const char *, IValue);
-        void Set(const char *, const char *, IValue);
+        bool Has(CStr);
+        bool Has(CStr, CStr);
+        void Set(CStr, IValue);
+        void Set(CStr, CStr, IValue);
         void Reset();
-        void Del(const char *);
-        void Del(const char *, const char *);
+        void Del(CStr);
+        void Del(CStr, CStr);
         void Write();
-        void Write(const char *);
+        void Write(CStr);
     };
 }
 

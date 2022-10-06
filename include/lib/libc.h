@@ -7,6 +7,8 @@
 #include <time.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdarg.h>
+#include <stddef.h>
 
 #define CStr const char *
 

@@ -13,7 +13,7 @@
 #define FLOAT_LEN sizeof(float)
 #define DOUBLE_LEN sizeof(double)
 #define CHAR_LEN sizeof(char)
-#define BOOL_LEN CHAR_LEN
+#define BOOL_LEN sizeof(bool)
 #define PTR_LEN sizeof(void *)
 
 #define HashMap std::unordered_map
@@ -46,12 +46,30 @@
 #define Enable_if_t std::enable_if_t
 
 #define Swap std::swap
+#define Sort std::sort
 
 #define Runtime_error std::runtime_error
+
+#define UniPtr std::unique_ptr
 
 #define ns_lock true
 #define ns_unlock false
 
 constexpr int NIL{};
+
+enum class REM_TYPE
+{
+    BOOL,
+    INT,
+    LONG,
+    LLONG,
+    FLOAT,
+    DOUBLE,
+    CHAR,
+    STRING,
+    PTR,
+    NIL,
+    EOT,
+};
 
 #endif

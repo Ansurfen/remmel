@@ -143,7 +143,7 @@ void IValue::operator=(const FStr &val)
 
 IniEngine::IniEngine() {}
 
-IniEngine::IniEngine(const char *filename)
+IniEngine::IniEngine(CStr filename)
 {
     this->Reset();
     Ifstream fp(filename);
@@ -182,22 +182,22 @@ IniEngine::IniEngine(const char *filename)
 
 IniEngine::~IniEngine() {}
 
-IniEngine::section &IniEngine::operator[](const char *section)
+IniEngine::section &IniEngine::operator[](CStr section)
 {
     return this->sections[section];
 }
 
-bool IniEngine::Has(const char *section)
+bool IniEngine::Has(CStr section)
 {
     return this->sections.find(section) == this->sections.end() ? false : true;
 }
 
-bool IniEngine::Has(const char *section, const char *key)
+bool IniEngine::Has(CStr section, CStr key)
 {
     return this->sections[section].find(key) == this->sections[section].end() ? false : true;
 }
 
-void IniEngine::Set(const char *k, IValue v)
+void IniEngine::Set(CStr k, IValue v)
 {
     FStr str(k);
     int pos = str.find_first_of('.');
@@ -206,7 +206,7 @@ void IniEngine::Set(const char *k, IValue v)
     this->Set(str.substr(0, pos).data(), str.substr(pos + 1, str.size() - pos - 1).data(), v);
 }
 
-void IniEngine::Set(const char *s, const char *key, IValue v)
+void IniEngine::Set(CStr s, CStr key, IValue v)
 {
     if (!this->Has(s))
         this->sections[s] = section();

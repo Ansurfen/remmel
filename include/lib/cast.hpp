@@ -5,6 +5,12 @@
 
 namespace remmel
 {
+    union REM_BOOL
+    {
+        bool val;
+        bits_t buf[BOOL_LEN];
+    };
+
     union REM_INT
     {
         int val;
@@ -47,6 +53,8 @@ namespace remmel
         bits_t buf[PTR_LEN];
     };
 
+    REM_BOOL _bool2bit_(int);
+    bool bit2bool(bitstream);
     REM_INT _int2bit_(int);
     int bit2int(bitstream);
     REM_LONG _long2bit_(long);
@@ -55,6 +63,8 @@ namespace remmel
     long long bit2llong(bitstream);
     REM_FLOAT _float2bit_(float);
     float bit2float(bitstream);
+    REM_DOUBLE _double2bit_(double);
+    double bit2double(bitstream);
     REM_CHAR _char2bit_(char);
     char bit2char(bitstream);
     REM_POINTER _ptr2bit_(void *);
@@ -62,9 +72,11 @@ namespace remmel
 
 #define str2bit(str) (bitstream) str
 #define ptr2bit(val) reinterpret_cast<bitstream>(_ptr2bit_(val).buf)
+#define bool2bit(val) reinterpret_cast<bitstream>(_bool2bit_(val).buf)
 #define int2bit(val) reinterpret_cast<bitstream>(_int2bit_(val).buf)
 #define long2bit(val) reinterpret_cast<bitstream>(_long2bit_(val).buf)
 #define float2bit(val) reinterpret_cast<bitstream>(_float2bit_(val).buf)
+#define double2bit(val) reinterpret_cast<bitstream>(_double2bit_(val).buf)
 #define char2bit(val) reinterpret_cast<bitstream>(_char2bit_(val).buf)
 }
 

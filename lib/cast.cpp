@@ -47,6 +47,21 @@ float bit2float(bitstream bits)
     return temp.val;
 }
 
+REM_DOUBLE _double2bit_(double val)
+{
+    REM_DOUBLE temp;
+    temp.val = val;
+    return temp;
+}
+
+float bit2float(bitstream bits)
+{
+    REM_DOUBLE temp;
+    for (int i = 0; i < DOUBLE_LEN; i++)
+        temp.buf[i] = bits[i];
+    return temp.val;
+}
+
 REM_CHAR _char2bit_(char ch)
 {
     REM_CHAR temp;

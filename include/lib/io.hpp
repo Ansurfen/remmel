@@ -2,10 +2,12 @@
 #define __REMMEL_IO__
 
 #include "constant.hpp"
+#include "debug.hpp"
 
 namespace remmel
 {
     Str Strip(Str);
+    FStr ReadFile(Str);
 
     enum class REM_FILE_STATUS
     {
